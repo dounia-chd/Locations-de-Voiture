@@ -1,71 +1,12 @@
-<div align="center">
-    <h3>PROJET PWEB</h3>
-    <h4>Application web de gestion de location de véhicules</h4>
-</div>
-</br>
+DrivUP est une application web de gestion de location de voitures développée avec le framework Symfony . Elle permet aux utilisateurs de visualiser les véhicules disponibles, réserver des locations avec ou sans inscription, gérer leur panier et accéder à un espace personnel. L’application intègre une réduction automatique si la flotte dépasse 10 véhicules.
 
-## Objectif du projet
+Elle propose trois espaces distincts :
 
-L'objectif est de développer une application web basé sur une architecture MVC.
-Nous avons choisi d'utiliser le framework [Symfony](https://symfony.com/).
+Client entreprise : tableau de bord avec statistiques de location, factures et historique.
 
-## Fonctionnalités disponibles
+Loueur : gestion des véhicules (ajout, modification, suppression), suivi des locations et factures par client.
 
-#### Fonctionnalités principales
-
-- Connexion / Inscription (non obligatoire)
-- Visualisation des véhicules disponibles
-- Réserver une location si l'utilisateur est connecté
-- Selection date de début et date fin de location (non obligatoire) lors d'une location
-- Réduction de 10% sur la facture si le nombre de véhicules dans la flotte est > 10
-- Visualisation du panier de l'utilisateur connecté
-- Possibilité d'annuler la pré-réservation (l'utilisateur n'a pas validé sa commande)
-
-### Espace utilisateur
-
-Chaque utilisateur à un espace utilisateur dédié
-
-- Client (Entreprise)
-
-  - Dashboard (visualisation des statistiques)
-
-    - Nombre de véhicules loués
-    - Nombre de véhicules non payés
-    - Nombre de véhicule rendu
-    - Côut total de toutes les locations effectuées
-
-  - Visualisation des véhicules loués (payées, non payées)
-  - Visualisation des facturations effectuées
-    </br>
-
-- Loueur
-
-  - Dashboard (visualisation des statistiques)
-
-    - Nombre de véhicule loués
-    - Nombre de véhicule non payés
-    - Nombre de véhicule rendu
-    - Côut total de toutes les locations effectuées
-
-  - Visualisation des véhicules loués lui appartenant (payées, non payées)
-  - Modifier / Supprimer un véhicule
-  - Visualiser les véhicules loués par client
-  - Ajouter un véhicule
-  - Visualisation des facturations effectuées par nos clients
-    </br>
-
-- Administrateur
-
-  - Dashboard (visualisation des statistiques)
-
-    - Nombre de véhicule loués
-    - Nombre de véhicules non payés
-    - Nombre de véhicule rendu
-    - Côut total de toutes les locations effectuées
-
-  - Gestion des véhicules (visualisation des véhicules, ajout d'un véhicule, suppression d'un véhicule, modification d'un véhicule)
-  - Gestion des locations (visualisation des locations et des facturations)
-  - Gestion des utilisateurs (visualisation des utilisateurs inscrits)
+Administrateur : gestion globale des utilisateurs, véhicules, emplacements et suivi des performances via un tableau de bord centralisé.
 
 ## Installation
 
@@ -113,20 +54,12 @@ Lancer l'application web
 ```
 symfony server:start
 ```
+## Pour se connecter
+Côté Loueur: easyrent@easyrent.com
+             Azerty123
+Côté Client: hubert.pichet@gmail.com
+            Azerty123
 
-Profils utilisateurs disponibles
 
-| Nom           | Adresse email             | Mot de passe | Rôle       |
-| ------------- | ------------------------- | ------------ | ---------- |
-| Hubert Pichet | hubert.pichet@gmail.com   | Azerty123    | Entreprise |
-| Jerome Aurore | jerome.aurore@hotmail.com | Azerty123    | Entreprise |
-| Easy rent     | easyrent@easyrent.com     | Azerty123    | Loueur     |
-| Sixt          | sixt@sixt.com             | Azerty123    | Loueur     |
 
-## Crédits
 
-**Développé par Daniel Aguiar, Hugo Mikolajek et David Benibri**
-
-## License
-
-MIT © [Daniel Aguiar](https://github.com/Danny-7)
