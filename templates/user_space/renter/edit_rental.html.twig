@@ -1,0 +1,56 @@
+{% extends 'user_space/index.html.twig' %}
+
+{% block title %}
+    Modifier la location
+{% endblock %}
+
+{% block dashboard %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">Modifier la location</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h5>Informations du véhicule</h5>
+                                <p><strong>Type :</strong> {{ bill.idCar.type }}</p>
+                                <p><strong>Client :</strong> {{ bill.idUser.name }}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Détails de la location</h5>
+                                <p><strong>Date de début :</strong> {{ bill.startDate|date('d/m/Y') }}</p>
+                                <p><strong>Montant :</strong> {{ bill.price }} €</p>
+                            </div>
+                        </div>
+
+                        {{ form_start(form) }}
+                        <div class="form-group">
+                            {{ form_row(form.startDate, {'label': 'Date de début'}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.endDate, {'label': 'Date de fin'}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.price, {'label': 'Prix'}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.paid, {'label': 'Payé'}) }}
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Enregistrer les modifications
+                            </button>
+                            <a href="{{ path('user_space_renter_cars_rented') }}" class="btn btn-secondary">
+                                <i class="fas fa-times"></i> Annuler
+                            </a>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %} 

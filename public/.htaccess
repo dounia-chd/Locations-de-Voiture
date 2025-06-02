@@ -1,0 +1,14 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Allow access to uploads directory
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
+
+# Serve static files from uploads directory
+<IfModule mod_rewrite.c>
+    RewriteRule ^uploads/(.*)$ uploads/$1 [L]
+</IfModule> 

@@ -1,0 +1,49 @@
+{% extends 'user_space/index.html.twig' %}
+
+{% block title %}Mes Factures{% endblock %}
+
+{% block dashboard %}
+    <div class="container">
+        <h2 class="mb-4">Mes Factures</h2>
+        
+        {% if bills is empty %}
+            <div class="alert alert-info">
+                Vous n'avez pas encore de factures.
+            </div>
+        {% else %}
+            <div class="row">
+                {% for bill in bills %}
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <img src="{{ asset('uploads/cars/' ~ bill[1].image|replace({'-': '_'}) ) }}" class="card-img-top" alt="{{ bill[1].type }}" style="height: 200px; object-fit: cover;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ bill[1].type }}</h5>
+                                <p class="card-text">
+                                    <strong>Date de début:</strong> {{ bill[0].startDate|date('d/m/Y') }}<br>
+                                    <strong>Date de fin:</strong> {{ bill[0].endDate ? bill[0].endDate|date('d/m/Y') : 'Non définie' }}<br>
+                                    <strong>Prix total:</strong> {{ bill[0].price }} €<br>
+                                    <strong>Statut:</strong> 
+                                    {% if bill[0].returned %}
+                                        <span class="badge badge-success">Retourné</span>
+                                    {% else %}
+                                        <span class="badge badge-warning">En cours</span>
+                                    {% endif %}
+                                    <br>
+                                    <strong>Paiement:</strong>
+                                    {% if bill[0].paid %}
+                                        <span class="badge badge-success">Payé</span>
+                                    {% else %}
+                                        <span class="badge badge-danger">Non payé</span>
+                                    {% endif %}
+                                </p>
+                                {% if not bill[0].paid %}
+                                    <a href="{{ path('payment_process', {'id': bill[0].id}) }}" class="btn btn-primary">Payer maintenant</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'user_space/index.html.twig' %}
+
+{% block title %}
+	Dashboard
+{% endblock %}
+
+{% block dashboard %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="mb-4">Tableau de bord</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card bg-primary text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Locations en cours</h5>
+                        <p class="card-text display-4">{{ infos[0] }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-success text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Locations terminées</h5>
+                        <p class="card-text display-4">{{ infos[1] }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-info text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Total des locations</h5>
+                        <p class="card-text display-4">{{ infos[2] }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card bg-warning text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Montant total payé</h5>
+                        <p class="card-text display-4">{{ infos[3] }} €</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-danger text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Locations impayées</h5>
+                        <p class="card-text display-4">{{ infos[4] }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-secondary text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Dépenses du mois</h5>
+                        <p class="card-text display-4">{{ infos[5] }} €</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

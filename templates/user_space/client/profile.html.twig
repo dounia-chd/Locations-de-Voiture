@@ -1,0 +1,52 @@
+{% extends 'user_space/index.html.twig' %}
+
+{% block title %}Mon Profil{% endblock %}
+
+{% block dashboard %}
+    <div class="container">
+        <h2 class="mb-4">Mon Profil</h2>
+        
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title mb-4">Informations personnelles</h5>
+                        <form method="post" action="{{ path('user_space_client_profile_update', {'id': user.id}) }}">
+                            <div class="form-group">
+                                <label for="name">Nom</label>
+                                <input type="text" class="form-control" id="name" name="name" value="{{ user.name }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="current_password">Mot de passe actuel</label>
+                                <input type="password" class="form-control" id="current_password" name="current_password">
+                            </div>
+                            <div class="form-group">
+                                <label for="new_password">Nouveau mot de passe</label>
+                                <input type="password" class="form-control" id="new_password" name="new_password">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm_password">Confirmer le nouveau mot de passe</label>
+                                <input type="password" class="form-control" id="confirm_password" name="confirm_password">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title mb-4">Statistiques</h5>
+                        <p><strong>Nombre de locations :</strong> {{ user.billings|length }}</p>
+                        <p><strong>Locations en cours :</strong> {{ user.billings|filter(b => not b.returned)|length }}</p>
+                        <p><strong>Factures impayées :</strong> {{ user.billings|filter(b => not b.paid)|length }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %} 

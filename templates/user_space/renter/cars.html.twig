@@ -1,0 +1,58 @@
+{% extends 'user_space/index.html.twig' %}
+
+{% block title %}
+	Mes véhicules
+{% endblock %}
+
+{% block dashboard %}
+	<div class="container">
+		<div class="row mb-4">
+			<div class="col-md-12">
+				<h2>Mes véhicules</h2>
+				<a href="{{ path('car_new') }}" class="btn btn-primary">
+					<i class="fas fa-plus"></i> Ajouter un véhicule
+				</a>
+			</div>
+		</div>
+		<div class="row">
+			{% for car in cars %}
+				<div class="col-md-4 mb-4">
+					<div class="card h-100">
+						<img src="{{ asset('uploads/cars/' ~ car.image|replace({'-': '_'}) ) }}" class="card-img-top" alt="{{ car.type }}" style="height: 200px; object-fit: cover;">
+						<div class="card-body">
+							<h5 class="card-title">{{ car.type }}</h5>
+							<p class="card-text">
+								<strong>Prix par jour :</strong> {{ car.amount }} €<br>
+								<strong>Quantité disponible :</strong> {{ car.quantity }}<br>
+								<strong>Statut :</strong> 
+								{% if car.rent == 'disponible' %}
+									<span class="badge badge-success">Disponible</span>
+								{% else %}
+									<span class="badge badge-danger">Indisponible</span>
+								{% endif %}
+							</p>
+							<div class="card-text">
+								<strong>Caractéristiques :</strong>
+								<ul>
+									{% for key, value in car.dataSheet %}
+										<li>{{ key }}: {{ value }}</li>
+									{% endfor %}
+								</ul>
+							</div>
+						</div>
+						<div class="card-footer">
+							<div class="btn-group w-100">
+								<a href="{{ path('user_space_renter_car_edit', {id: car.id}) }}" class="btn btn-warning">
+									<i class="fas fa-edit"></i> Modifier
+								</a>
+								<a href="{{ path('user_space_renter_car_delete', {id: car.id}) }}" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce véhicule ?')">
+									<i class="fas fa-trash"></i> Supprimer
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

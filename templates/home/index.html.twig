@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="container-fluid h-100 home">
+        <div class="row h-100">
+            <div class="col-12 text-center d-flex flex-column justify-content-center align-items-center">
+                <h1 class="display-1 text-light mb-4">DrivUP</h1>
+                <p class="lead text-light mb-5">Votre partenaire de confiance pour la location de véhicules</p>
+                <div class="d-flex gap-3">
+                    <a href="{{ path('cars') }}" class="btn btn-lg btn-primary">Découvrir nos véhicules</a>
+                    <a href="{{ path('app_login') }}" class="btn btn-lg btn-outline-light">Se connecter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-4 text-center mb-4">
+                <i class="fas fa-car fa-3x mb-3 text-primary"></i>
+                <h3>Large gamme de véhicules</h3>
+                <p>Des citadines aux SUV de luxe, trouvez le véhicule qui correspond à vos besoins.</p>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+                <i class="fas fa-shield-alt fa-3x mb-3 text-primary"></i>
+                <h3>Service de qualité</h3>
+                <p>Une équipe professionnelle à votre service pour une expérience sans souci.</p>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+                <i class="fas fa-euro-sign fa-3x mb-3 text-primary"></i>
+                <h3>Prix compétitifs</h3>
+                <p>Des tarifs adaptés à tous les budgets avec des offres spéciales régulières.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .home {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ asset('assets/images/luxury-back.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            min-height: 80vh;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 15px 30px;
+            font-weight: bold;
+        }
+        .btn-outline-light {
+            padding: 15px 30px;
+            font-weight: bold;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .display-1 {
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .lead {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+{% endblock %}

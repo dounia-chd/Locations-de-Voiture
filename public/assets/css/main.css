@@ -1,0 +1,190 @@
+/* Global styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f8f9fa !important;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Home page style */
+.home {
+  background-image: url("../images/luxury-car-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Navbar styles */
+.navbar.navbar-expand-lg.navbar-dark {
+  background-color: #2c3e50 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 1rem 2rem;
+}
+
+.navbar .nav-link {
+  color: #ecf0f1 !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+}
+
+.navbar .nav-link:hover {
+  color: #3498db !important;
+}
+
+/* Cart styles */
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  height: fit-content;
+  font-size: 12px;
+  background: #e74c3c !important;
+  color: #ffffff !important;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Dropdown indicators */
+.nav-link[data-toggle].collapsed:before {
+  content: " ▾";
+  transition: transform 0.3s ease;
+}
+
+.nav-link[data-toggle]:not(.collapsed):before {
+  content: " ▴";
+  transition: transform 0.3s ease;
+}
+
+/* Button styles */
+.btn.btn-primary {
+  background-color: #3498db !important;
+  border-color: #3498db !important;
+  color: #ffffff !important;
+}
+
+.btn.btn-primary:hover {
+  background-color: #2980b9 !important;
+  border-color: #2980b9 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn.btn-secondary {
+  background-color: #2c3e50 !important;
+  border-color: #2c3e50 !important;
+  color: #ecf0f1 !important;
+}
+
+.btn.btn-secondary:hover {
+  background-color: #34495e !important;
+  border-color: #34495e !important;
+  color: #ecf0f1 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn.btn-success {
+  background-color: #27ae60 !important;
+  border-color: #27ae60 !important;
+  color: #ffffff !important;
+}
+
+.btn.btn-success:hover {
+  background-color: #219a52 !important;
+  border-color: #219a52 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn.btn-danger {
+  background-color: #e74c3c !important;
+  border-color: #e74c3c !important;
+  color: #ffffff !important;
+}
+
+.btn.btn-danger:hover {
+  background-color: #c0392b !important;
+  border-color: #c0392b !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Card styles */
+.card {
+  border: none !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Form styles */
+.form-control {
+  border-radius: 5px !important;
+  border: 1px solid #ddd !important;
+  padding: 0.75rem !important;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #3498db !important;
+  box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25) !important;
+}
+
+/* Alert styles */
+.alert-success {
+  background-color: #27ae60 !important;
+  border-color: #27ae60 !important;
+  color: #ffffff !important;
+}
+
+.alert-danger {
+  background-color: #e74c3c !important;
+  border-color: #e74c3c !important;
+  color: #ffffff !important;
+}
+
+/* Footer styles */
+footer.bg-dark {
+  background-color: #2c3e50 !important;
+}
+
+footer .text-light {
+  color: #ecf0f1 !important;
+}
+
+/* Social links */
+.social-links a {
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #3498db !important;
+}
